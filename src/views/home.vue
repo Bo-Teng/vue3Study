@@ -1,20 +1,18 @@
-<template lang="">
-  <div></div>
-</template>
 <script lang="ts">
-import { h } from 'vue'
-export default {
-  render (this: any) {
+import { h, defineComponent } from 'vue'
+import { ElButton } from 'element-plus'
+export default defineComponent({
+  render () {
     return h(
-      'el-button',
+      ElButton,
       {
-        onClick: this.btn()
+        onClick: this.btn
       },
-      'homebtn'
+      this.Bext
     )
   },
   methods: {
-    btn (this: any) {
+    btn () {
       let time: undefined | number = undefined
       return () => {
         clearTimeout(time)
@@ -28,7 +26,8 @@ export default {
     return {
       text: 'xxx'
     }
-  }
-}
+  },
+  inject: ['Bext']
+})
 </script>
 <style lang=""></style>

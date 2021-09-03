@@ -1,26 +1,27 @@
 <template lang="">
   <div>
-    <button @click="btnClick()">templateBtn</button>
-    <h1>{{ text }}</h1>
-    <router-view />
+    <router-view :data="childData" @update="update" />
+    <div>F:{{ childData }}</div>
   </div>
 </template>
 <script lang="ts">
-export default {
-  data () {
+import { defineComponent, ref, toRef } from 'vue'
+
+export default defineComponent({
+  setup () {
+    let childData = ref('xxx')
+    const update = function () {
+      childData.value += 's'
+    }
     return {
-      text: 'xxx'
+      childData,
+      update
     }
   },
-  methods: {
-    btnClick (this: any): object {
-      console.log(1)
-      return (): void => {
-        this.text += 'tb'
-        
-      }
+  provide () {
+    return {
+      Bext: 'bibibibi'
     }
-  },
-}
+  }
+})
 </script>
-<style lang="" scoped></style>
