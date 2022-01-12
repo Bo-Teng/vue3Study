@@ -9,6 +9,7 @@
   "dependencies": {
     "@vitejs/plugin-vue-jsx": "^1.1.7",
     "element-plus": "^1.0.2-beta.70",
+    "lodash": "^4.17.21",
     "path": "^0.12.7",
     "scss": "^0.2.4",
     "ts-node": "^10.2.0",
