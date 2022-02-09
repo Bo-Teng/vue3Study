@@ -18,6 +18,16 @@ const routes: RouteRecordRaw[] = [
     path: '/demo',
     name: 'demo',
     component: () => import('@/views/demo.vue')
+  },
+  {
+    path: '/animation',
+    name: 'animation',
+    component: () => import('@/views/animation.vue')
+  },
+  {
+    path: '/vritualTree',
+    name: 'vritualTree',
+    component: () => import('@/views/vritualTree.vue')
   }
 ]
 const router = createRouter({

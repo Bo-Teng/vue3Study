@@ -4021,7 +4021,6 @@ export default function lodash() {
      * @returns {Function} Returns `func`.
      */
     var baseSetData = !metaMap ? identity : function (func, data) {
-      debugger
       metaMap.set(func, data);
       return func;
     };
@@ -5557,7 +5556,6 @@ export default function lodash() {
       } else {
         result = createHybrid.apply(undefined, newData);
       }
-      debugger
       var setter = data ? baseSetData : setData;
       return setWrapToString(setter(result, newData), func, bitmask);
     }
@@ -6687,7 +6685,6 @@ export default function lodash() {
         lastCalled = 0;
 
       return function () {
-        debugger
         var stamp = nativeNow(),
           remaining = HOT_SPAN - (stamp - lastCalled);
 

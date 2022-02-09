@@ -1,13 +1,12 @@
 <template>
   <div class="home"></div>
+  <input type="file" id="file" @change="filechange" />
 </template>
 <script lang="ts">
 import { h, defineComponent, onMounted, nextTick, ref } from 'vue'
 import { ElButton } from 'element-plus'
 export default defineComponent({
-  setup (context, prop) {
- 
-  },
+  setup (context, prop) {},
   render () {
     return h(
       ElButton,
@@ -27,6 +26,15 @@ export default defineComponent({
           this.text += 'tb'
         }, 500)
       }
+    },
+    filechange () {
+      const file = document.querySelector('#file')
+      const read = new FileReader()
+      read.onload=function(e){
+        console.log(e.target);
+        
+      }
+      read.readAsText(file.files[0])
     }
   },
   data () {
