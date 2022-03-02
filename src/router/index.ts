@@ -28,6 +28,16 @@ const routes: RouteRecordRaw[] = [
     path: '/vritualTree',
     name: 'vritualTree',
     component: () => import('@/views/vritualTree.vue')
+  },
+  {
+    path: '/lodash',
+    name: 'lodash',
+    component: () => import('@/views/lodash.vue')
+  },
+  {
+    path: '/video2',
+    name: 'video',
+    component: () => import('@/views/updateFile.vue')
   }
 ]
 const router = createRouter({

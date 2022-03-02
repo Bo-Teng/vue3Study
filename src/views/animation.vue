@@ -11,7 +11,17 @@ import '../../public/zdog.dist.js'
 
 export default defineComponent({
   name: 'animataion',
-  setup () {
+  setup() {
+    let arr = ['nap', 'teachers', 'cheaters', 'PAN', 'ear', 'era', 'hectares']
+
+    function aclean(arr) {
+      const map = new Map()
+      arr.map((item) => {
+        map.set(item.toLowerCase().split('').sort().join(''), item)
+      })
+      return Array.from(map.values())
+    }
+    console.log(aclean(arr))
     onMounted(() => {
       const ctx = document.querySelector('.zdog-canvas').getContext('2d')
       ctx.fillStyle = 'rgba(255,255,0,1)'
@@ -23,7 +33,7 @@ export default defineComponent({
       ctx.fillStyle = 'rgba(200,0,0,.7)'
       ctx.fillRect(10, 10, 55, 50)
     })
-  }
+  },
 })
 </script>
 <style lang="scss">

@@ -1,31 +1,13 @@
 <template>
   <div>
-    <input type="text" v-model="computeds" />
-    {{ computeds }}
-    <br />
-    {{ val }}
+    <div class="box">box1</div>
+    <div class="box extend">box2</div>
+    <div class="box a">box3</div>
   </div>
 </template>
 
 <script lang="ts">
-interface obj {
-  [a: string]: number
-}
-function fn<T extends obj, U extends keyof T> (obj: T, key: U): T[U][] {
-  let arr = []
-  arr.push(obj[key])
-  return arr
-}
-
-let obj: obj = {
-  a: 1,
-  b: 2,
-  c: 3
-}
-for (const key in obj) {
-  console.log(fn(obj, key))
-}
-
+let name = 'global'
 import {
   defineComponent,
   ref,
@@ -34,32 +16,38 @@ import {
   toRefs,
   toRef,
   onMounted,
-  watch
+  watch,
 } from 'vue'
-let com = function () {
-  const val = ref(1)
-  let computeds = computed({
-    get () {
-      return val.value
-    },
-    set (i: any) {
-      val.value = i
-    }
-  })
-  return { computeds, val }
-}
-
+import * as t from '../export2'
 export default defineComponent({
   model: {
     prop: 'value',
-    event: 'change'
+    event: 'change',
   },
-  setup (prop, context) {
-    const { computeds, val } = com()
-    return { computeds, val }
+  setup(prop, context) {
+    let x = 1
+    function fn() {
+    }
+    fn()
   },
-  props: ['data']
+  props: ['data'],
 })
 </script>
 
-<style></style>
+<style lang="scss">
+$red: red;
+$green: green;
+@use '../style/login';
+@mixin mixin($color: $red) {
+  background: $color;
+}
+.box {
+  @include mixin($red);
+}
+.extend {
+  @include mixin($green);
+}
+.a {
+  @extend .extend;
+}
+</style>

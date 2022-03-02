@@ -1,6 +1,7 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, h } from 'vue'
 import { useRouter } from 'vue-router'
 import lodash from '../../public/lodash.js'
+import '@/style/login.scss'
 export default defineComponent({
   setup() {
     lodash.call(window)
@@ -86,8 +87,6 @@ export default defineComponent({
             reject(e);
           }
         }
-        console.log(this);
-
         if (this.PromiseState === 'fulfilled') {
           setTimeout(() => {     //++++++++
             callback(onResolved);
@@ -113,7 +112,6 @@ export default defineComponent({
       })
     }
     const obj = new Promise((res, rej) => {
-      console.log('bbbb');
       setTimeout(() => {
         console.log('sss');
         res('TB')
@@ -122,5 +120,14 @@ export default defineComponent({
     obj.then(res => {
       console.log(res, 'then');
     })
+    const obj_1 = {
+      a: 1
+    }
+    obj_1[Symbol.toPrimitive] = function (a) {
+      console.dir(a, '1');
+      console.dir(this.a, '2');
+    }
+    obj_1 + ''
+    return () => (<div style="width:300px;height:300px;"><div class='box'>111</div></div>)
   }
 })

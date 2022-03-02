@@ -1,27 +1,27 @@
-<template lang="">
+<template >
   <div>
-    <router-view :data="childData" @update="update" />
-    <div>F:{{ childData }}</div>
+    <router-view />
+    <!-- <div>F:{{ childData }}</div>
+    <div class="box">2</div> -->
   </div>
 </template>
 <script lang="ts">
 import { defineComponent, ref, toRef } from 'vue'
-
 export default defineComponent({
-  setup () {
+  setup() {
     let childData = ref('xxx')
     const update = function () {
       childData.value += 's'
     }
     return {
       childData,
-      update
+      update,
     }
   },
-  provide () {
+  provide() {
     return {
-      Bext: 'bibibibi'
+      Bext: 'bibibibi',
     }
-  }
+  },
 })
 </script>
