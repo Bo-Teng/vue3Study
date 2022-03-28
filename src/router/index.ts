@@ -14,11 +14,11 @@ const routes: RouteRecordRaw[] = [
     name: 'home',
     component: () => import('@/views/home.vue')
   },
-  {
-    path: '/demo',
-    name: 'demo',
-    component: () => import('@/views/demo.vue')
-  },
+  // {
+  //   path: '/demo',
+  //   name: 'demo',
+  //   component: () => import('@/views/demo.vue')
+  // },
   {
     path: '/animation',
     name: 'animation',
@@ -34,11 +34,11 @@ const routes: RouteRecordRaw[] = [
     name: 'lodash',
     component: () => import('@/views/lodash.vue')
   },
-  {
-    path: '/video2',
-    name: 'video',
-    component: () => import('@/views/updateFile.vue')
-  }
+  // {
+  //   path: '/video2',
+  //   name: 'video',
+  //   component: () => import('@/views/updateFile.vue')
+  // }
 ]
 const router = createRouter({
   history: createWebHashHistory(),
