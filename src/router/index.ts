@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import login from '@/views/login'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
@@ -7,18 +8,14 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login')
+    component: login
   },
   {
     path: '/home',
     name: 'home',
     component: () => import('@/views/home.vue')
   },
-  // {
-  //   path: '/demo',
-  //   name: 'demo',
-  //   component: () => import('@/views/demo.vue')
-  // },
+
   {
     path: '/animation',
     name: 'animation',
@@ -32,13 +29,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/lodash',
     name: 'lodash',
-    component: () => import('@/views/lodash.vue')
-  },
-  // {
-  //   path: '/video2',
-  //   name: 'video',
-  //   component: () => import('@/views/updateFile.vue')
-  // }
+    component: () => import('@/views/lodash.tsx')
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),
