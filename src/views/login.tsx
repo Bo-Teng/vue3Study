@@ -1,8 +1,35 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   setup () {
-    console.log(1)
+    let promise: () => Promise<void> = () =>
+      new Promise<void>(res => {
+        setTimeout(res, 1000)
+      })
+    let promise_2: Promise<void> = new Promise<void>(res => {
+      // setTimeout(res, 1000)
+      res()
+    })
 
+    let iterable = {
+      [Symbol.asyncIterator] () {
+        return {
+          flag: 0,
+          async next () {
+            await promise()
+            await promise_2
+            return {
+              value: this.flag++,
+              done: this.flag > 5,
+            }
+          },
+        }
+      },
+    }
+    ;(async () => {
+      for await (let key of iterable) {
+        console.log(key)
+      }
+    })()
     return () => {
       return (
         <>
@@ -10,5 +37,5 @@ export default defineComponent({
         </>
       )
     }
-  }
+  },
 })
