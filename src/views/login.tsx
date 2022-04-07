@@ -41,6 +41,7 @@ export default defineComponent({
         setTimeout(() => {      //++++++++
           self.callbacks.forEach(item => {
             item.onRejected(data)
+            
           })
         });
 
