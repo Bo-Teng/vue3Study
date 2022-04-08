@@ -1,14 +1,22 @@
 import { defineComponent } from 'vue'
+import son from '@/components/btn.vue'
 export default defineComponent({
   setup () {
-    console.log(1)
-
+    function customEvent (...a: any[]) {
+      console.log(a)
+    }
     return () => {
       return (
         <>
-          <div></div>
+          <div>
+            
+            <son onClick={customEvent} />
+          </div>
         </>
       )
     }
+  },
+  components: {
+    son
   }
 })
